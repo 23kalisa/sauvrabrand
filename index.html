@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAUVRA - Fixed Cosmetics Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            scroll-behavior: smooth;
+            background-color: #f9f9f9;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: black;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #d35d8a;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-left: 20px;
+        }
+        
+        .cart-icon i {
+            font-size: 20px;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: #d35d8a;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+        
+        .cart-total {
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 150px 50px 100px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        /* Home Section */
+        #home {
+            background-image: url("pinterest-fiama.jpg");
+            text-align: center;
+            justify-content: center;
+        }
+        
+        #home .content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        #home h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            color: black;
+        }
+        
+        #home p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #555;
+        }
+        
+        /* Buttons */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 80px;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: black;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color:black;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid black;
+            color:black;
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(211, 93, 138, 0.1);
+        }
+        
+        /* Features */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature {
+            flex: 1;
+            text-align: center;
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(211, 93, 138, 0.15);
+        }
+        
+        .feature h3 {
+            margin: 20px 0 10px;
+            font-size: 18px;
+            color: #222;
+        }
+        
+        .feature p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .feature-icon {
+            font-size: 36px;
+            color: black;
+        }
+        
+        /* Sowe Models Section */
+        #sowe-models {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                         url("pinterest-pamela.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .models-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+        
+        .models-content {
+            flex: 2;
+            background-color: white;
+            padding: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
+        .models-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        #sowe-models h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: normal;
+            color: black;
+        }
+        
+        #sowe-models p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .offer-box {
+            background-color: #fff0f5;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        
+        #sowe-models h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            color: black;
+        }
+        
+        #sowe-models ul {
+            margin-bottom: 30px;
+            padding-left: 20px;
+        }
+        
+        #sowe-models li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .scout-button {
+            display: inline-block;
+            background-color:black;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            text-align: center;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .scout-button:hover {
+            background-color: black;
+        }
+        
+        /* Collection Section */
+        #collection {
+            background-color: #f9f9f9;
+            padding: 100px 50px;
+            text-align: center;
+        }
+        
+        .collection-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        #collection h1 {
+            font-size: 42px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 300;
+            color: black;
+        }
+        
+        #collection .slogan {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 60px;
+            font-style: italic;
+        }
+        
+        /* Featured Collection - Horizontal Scroll */
+        .featured-collection {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .featured-collection::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .featured-item {
+            flex: 0 0 auto;
+            width: 280px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .featured-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .featured-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .item-info {
+            padding: 20px;
+        }
+        
+        .item-info h3 {
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .item-info .description {
+            color: #888;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .item-info .price {
+            font-weight: bold;
+            color: #d35d8a;
+            font-size: 18px;
+        }
+        
+        .add-to-cart {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: #d35d8a;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #b34c7a;
+        }
+        
+        /* Full Collection Grid (hidden by default) */
+        .full-collection {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .full-collection.visible {
+            display: grid;
+        }
+        
+        .view-collection {
+            margin-top: 40px;
+            padding: 15px 40px;
+            background-color: #d35d8a;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 25px;
+        }
+        
+        .view-collection:hover {
+            background-color: black;
+        }
+        
+        .view-less {
+            display: none;
+            margin-top: 40px;
+            padding: 15px 40px;
+            background-color: black;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 25px;
+        }
+        
+        .view-less:hover {
+            background-color:black;
+        }
+        
+        /* Model-appropriate clothing styles */
+        .model-outfit {
+            position: relative;
+        }
+        
+        .model-outfit::after {
+            content: "MODEL APPROVED";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(26, 24, 24, 0.9);
+            color: white;
+            padding: 5px 10px;
+            font-size: 10px;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+        
+        /* Cosmetics Section */
+        #cosmetics {
+            background: linear-gradient(rgba(255, 240, 245, 0.9), rgba(255, 240, 245, 0.9)), 
+                         url('https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 50px;
+        }
+
+        .cosmetics-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #cosmetics h1 {
+            font-size: 42px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 300;
+            color: #d35d8a;
+        }
+
+        #cosmetics .slogan {
+            font-size: 18px;
+            color: #d35d8a;
+            margin-bottom: 60px;
+            font-style: italic;
+        }
+
+        /* Featured Cosmetics - Horizontal Scroll */
+        .featured-cosmetics {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .featured-cosmetics::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cosmetic-item {
+            flex: 0 0 auto;
+            width: 280px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .cosmetic-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(211, 93, 138, 0.2);
+        }
+
+        .cosmetic-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #fff0f5;
+        }
+
+        .cosmetic-info {
+            padding: 20px;
+        }
+
+        .cosmetic-info h3 {
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #d35d8a;
+        }
+
+        .cosmetic-info .description {
+            color: #888;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .cosmetic-info .price {
+            font-weight: bold;
+            color: #d35d8a;
+            font-size: 18px;
+        }
+
+        /* Full Cosmetics Grid (hidden by default) */
+        .full-cosmetics {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .full-cosmetics.visible {
+            display: grid;
+        }
+
+        .view-more-cosmetics {
+            margin-top: 40px;
+            padding: 15px 40px;
+            background-color: #d35d8a;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 25px;
+        }
+
+        .view-more-cosmetics:hover {
+            background-color: #b34c7a;
+        }
+
+        .view-less-cosmetics {
+            display: none;
+            margin-top: 40px;
+            padding: 15px 40px;
+            background-color: #d35d8a;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 25px;
+        }
+
+        .view-less-cosmetics:hover {
+            background-color: #b34c7a;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #f5f5f5;
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #contact h1 {
+            font-size: 42px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 300;
+            color: #d35d8a;
+        }
+
+        #contact .slogan {
+            font-size: 18px;
+            color: #777;
+            margin-bottom: 60px;
+            font-style: italic;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-item i {
+            font-size: 24px;
+            color: #d35d8a;
+        }
+
+        .contact-item p {
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #d35d8a;
+            transform: translateY(-3px);
+        }
+
+        /* UPDATED: Horizontal layout for shop, about, help */
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Increased gap for better spacing */
+            margin-top: 20px;
+        }
+
+        .quick-links-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quick-links-column h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .quick-links-column a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .quick-links-column a i {
+            font-size: 12px;
+        }
+
+        .quick-links-column a:hover {
+            color: white;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            margin-top: 30px;
+        }
+
+        .newsletter h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            width: 70%;
+            font-size: 14px;
+        }
+
+        .newsletter-form button {
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color:black;
+        }
+        
+        .payment-methods {
+            margin-top: 30px;
+        }
+
+        .payment-methods h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 30px;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+        }
+        
+        /* Form Styles */
+        .form-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .scout-form {
+            background-color: white;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .scout-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .parent-info {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #888;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            section {
+                padding: 120px 20px 80px;
+            }
+            
+            .models-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .features {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .featured-collection, .featured-cosmetics {
+                gap: 20px;
+            }
+            
+            .featured-item, .cosmetic-item {
+                width: 260px;
+            }
+            
+            /* Responsive footer adjustments */
+            .quick-links {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">SAUVRA</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#sowe-models">Sowe Models</a>
+            <a href="#collection">Collection</a>
+            <a href="#cosmetics">Cosmetics</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+            <span class="cart-total">$0</span>
+        </div>
+    </nav>
+    
+    <!-- Home Section -->
+    <section id="home">
+        <div class="content">
+            <h1>SAUVRA</h1>
+            <p>Defining confidence in every shade, shape, design, and style</p>
+            <div class="buttons">
+                <a href="#sowe-models" class="btn btn-primary">Discover Our Services</a>
+                <a href="#collection" class="btn btn-secondary">Explore Collection</a>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Sowe Models</h3>
+                    <p>Professional modeling agency representing the finest talent</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Collection</h3>
+                    <p>Luxury fashion line defining contemporary elegance</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Cosmetics</h3>
+                    <p>Premium beauty products for every skin tone</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sowe Models Section -->
+    <section id="sowe-models">
+        <div class="models-container">
+            <div class="models-content">
+                <h1>Sowe Models</h1>
+                <p>We represent exceptional talent in the fashion and beauty industry. Our models embody the Sauvra spirit of confidence and elegance, working with top brands and designers worldwide.</p>
+                <p>Join our exclusive roster of models and become part of the Sauvra family. We're always looking for fresh faces with unique personalities and professional attitudes.</p>
+                
+                <div class="offer-box">
+                    <h2>What We Offer</h2>
+                    <ul>
+                        <li>Professional portfolio development</li>
+                        <li>High-end fashion campaign bookings</li>
+                        <li>International modeling opportunities</li>
+                        <li>Personal brand development</li>
+                        <li>Exclusive networking events</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="models-side">
+                <a href="#" id="scout-btn" class="scout-button">Get Scouted</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Collection Section -->
+    <section id="collection">
+        <div class="collection-container">
+            <h1>COLLECTION</h1>
+            <p class="slogan">Where timeless elegance meets contemporary design</p>
+            
+            <h2 style="margin-bottom: 20px; font-weight: normal; text-align: left;">Featured Pieces</h2>
+            <div class="featured-collection">
+                <!-- Featured Item 1 -->
+                <div class="featured-item ">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Runway Blazer">
+                    <div class="item-info">
+                        <h3>Runway Blazer</h3>
+                        <p class="description">Structured sophistication</p>
+                        <p class="price">$329</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Featured Item 2 -->
+                <div class="featured-item ">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Silk Slip Dress">
+                    <div class="item-info">
+                        <h3>Silk Slip Dress</h3>
+                        <p class="description">Effortless elegance</p>
+                        <p class="price">$279</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Featured Item 3 -->
+                <div class="featured-item">
+                    <img src="https://images.unsplash.com/photo-1520367445093-50dc08a59d9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Tailored Trousers">
+                    <div class="item-info">
+                        <h3>Tailored Trousers</h3>
+                        <p class="description">Perfect drape</p>
+                        <p class="price">$189</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Featured Item 4 -->
+                <div class="featured-item ">
+                    <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Cashmere Set">
+                    <div class="item-info">
+                        <h3>Cashmere Set</h3>
+                        <p class="description">Luxury comfort</p>
+                        <p class="price">$399</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Full Collection (hidden by default) -->
+            <div class="full-collection">
+                <!-- Additional items -->
+                <div class="featured-item ">
+                    <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Silk Evening Dress">
+                    <div class="item-info">
+                        <h3>Silk Evening Dress</h3>
+                        <p class="description">Elegance redefined</p>
+                        <p class="price">$299</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="featured-item ">
+                    <img src="https://images.unsplash.com/photo-1520367445093-50dc08a59d9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Tailored Blazer">
+                    <div class="item-info">
+                        <h3>Tailored Blazer</h3>
+                        <p class="description">Power in every stitch</p>
+                        <p class="price">$249</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="featured-item ">
+                    <img src="https://images.unsplash.com/photo-1554412933-514a83d2f3c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Cashmere Sweater">
+                    <div class="item-info">
+                        <h3>Cashmere Sweater</h3>
+                        <p class="description">Luxury comfort</p>
+                        <p class="price">$179</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="featured-item ">
+                    <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Leather Trousers">
+                    <div class="item-info">
+                        <h3>Leather Trousers</h3>
+                        <p class="description">Edgy sophistication</p>
+                        <p class="price">$189</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="view-collection">VIEW FULL COLLECTION</button>
+            <button class="view-less">VIEW LESS</button>
+        </div>
+    </section>
+    
+    <!-- Cosmetics Section -->
+    <section id="cosmetics">
+        <div class="cosmetics-container">
+            <h1>COSMETICS</h1>
+            <p class="slogan">Enhancing natural beauty for every skin tone</p>
+            
+            <!-- Featured Products - Horizontal Scroll -->
+            <div class="featured-cosmetics">
+                <!-- Featured Product 1 -->
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Liquid Foundation">
+                    <div class="cosmetic-info">
+                        <h3>Liquid Foundation</h3>
+                        <p class="description">24 shade range</p>
+                        <p class="price">$42</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Featured Product 2 -->
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Matte Lipstick">
+                    <div class="cosmetic-info">
+                        <h3>Matte Lipstick</h3>
+                        <p class="description">18 vibrant shades</p>
+                        <p class="price">$28</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Featured Product 3 -->
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Highlighter Palette">
+                    <div class="cosmetic-info">
+                        <h3>Highlighter Palette</h3>
+                        <p class="description">4 radiant shades</p>
+                        <p class="price">$38</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Featured Product 4 -->
+                <div class="cosmetic-item">
+                    <img src="https://i.pinimg.com/1200x/5c/bc/d5/5cbcd5e079944d08a7e52c83ee86b2eb.jpg" 
+                         alt="Volumizing Mascara">
+                    <div class="cosmetic-info">
+                        <h3>Volumizing Mascara</h3>
+                        <p class="description">Lengthens & thickens</p>
+                        <p class="price">$26</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Full Collection (hidden by default) -->
+            <div class="full-cosmetics">
+                <!-- Products 1-12 -->
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Eyeshadow Palette">
+                    <div class="cosmetic-info">
+                        <h3>Eyeshadow Palette</h3>
+                        <p class="description">12 neutral shades</p>
+                        <p class="price">$48</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Lip Gloss">
+                    <div class="cosmetic-info">
+                        <h3>Lip Gloss</h3>
+                        <p class="description">Non-sticky formula</p>
+                        <p class="price">$22</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Brow Pencil">
+                    <div class="cosmetic-info">
+                        <h3>Brow Pencil</h3>
+                        <p class="description">Precision application</p>
+                        <p class="price">$24</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Concealer">
+                    <div class="cosmetic-info">
+                        <h3>Creamy Concealer</h3>
+                        <p class="description">Full coverage</p>
+                        <p class="price">$29</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Powder Blush">
+                    <div class="cosmetic-info">
+                        <h3>Powder Blush</h3>
+                        <p class="description">Buildable color</p>
+                        <p class="price">$27</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://i.pinimg.com/736x/83/42/e3/8342e3927f360f27f1f8abe1d2be3865.jpg" 
+                         alt="Makeup Remover">
+                    <div class="cosmetic-info">
+                        <h3>Makeup Remover</h3>
+                        <p class="description">Gentle formula</p>
+                        <p class="price">$20</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1617897903246-719242758050?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Setting Spray">
+                    <div class="cosmetic-info">
+                        <h3>Setting Spray</h3>
+                        <p class="description">Long-lasting wear</p>
+                        <p class="price">$31</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Bronzer">
+                    <div class="cosmetic-info">
+                        <h3>Matte Bronzer</h3>
+                        <p class="description">Sun-kissed glow</p>
+                        <p class="price">$34</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Lip Liner">
+                    <div class="cosmetic-info">
+                        <h3>Lip Liner</h3>
+                        <p class="description">Precision application</p>
+                        <p class="price">$21</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Eye Cream">
+                    <div class="cosmetic-info">
+                        <h3>Eye Cream</h3>
+                        <p class="description">Hydrating formula</p>
+                        <p class="price">$45</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                         alt="Makeup Brushes">
+                    <div class="cosmetic-info">
+                        <h3>Brush Set</h3>
+                        <p class="description">6 essential brushes</p>
+                        <p class="price">$58</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="cosmetic-item">
+                    <img src="https://i.pinimg.com/736x/aa/9a/72/aa9a725cc0931c8777f51a6b457f2cfb.jpg" 
+                         alt="Primer">
+                    <div class="cosmetic-info">
+                        <h3>Face Primer</h3>
+                        <p class="description">Pore-minimizing</p>
+                        <p class="price">$36</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="view-more-cosmetics">VIEW MORE</button>
+            <button class="view-less-cosmetics">VIEW LESS</button>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <h1>CONTACT US</h1>
+            <p class="slogan">Get in touch with the SAUVRA team</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>sauvrabrand@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+250 724 393 294</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Kigali, Rwanda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">SAUVRA</div>
+            
+            <div class="social-icons">
+                <a href="https://www.instagram.com/sauvra__/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61579340433010" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/TFiama77596" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.pinterest.com/collectionsauvra/_created/" class="social-icon" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a href="https://www.tiktok.com/@sauvra3" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.linkedin.com/in/sauvra-brand-b965aa37a/" class="social-icon" aria-label="Linkedin"><i class="fab fa-linkedin"></i></a>
+            </div>
+            
+            <!-- UPDATED: Horizontal layout for shop, about, help -->
+            <div class="quick-links">
+                <div class="quick-links-column">
+                    <h3>Shop</h3>
+                    <a href="#"><i class="fas fa-chevron-right"></i> New Arrivals</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Best Sellers</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Sale</a>
+                </div>
+                <div class="quick-links-column">
+                    <h3>About</h3>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Our Story</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Sustainability</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Careers</a>
+                </div>
+                <div class="quick-links-column">
+                    <h3>Help</h3>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Customer Service</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Shipping Info</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i> Returns & Exchanges</a>
+                </div>
+            </div>
+            
+            <div class="newsletter">
+                <h3>Subscribe to our newsletter</h3>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+            
+            <div class="payment-methods">
+                <h3>Accepted Payments</h3>
+                <div class="payment-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fas fa-mobile-alt" title="MoMo"></i>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 SAUVRA. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scout Form -->
+    <div class="form-container" id="form-container">
+        <div class="scout-form">
+            <span class="close-btn">&times;</span>
+            <h2>Get Scouted</h2>
+            <form id="scout-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                    <div class="error">Please enter your full name</div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                    <div class="error">Please enter a valid email</div>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <select id="age" required>
+                        <option value="">Select age</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                        <option value="34">34</option>
+                        <option value="35">35</option>
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                    </select>
+                    <div class="error">Please select your age</div>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (cm)</label>
+                    <input type="number" id="height" required>
+                    <div class="error">Please enter your height</div>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Modeling Experience</label>
+                    <textarea id="experience" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="photos">Upload Photos (up to 3)</label>
+                    <input type="file" id="photos" multiple accept="image/*">
+                </div>
+                <div class="parent-info">
+                    <h3>Parent/Guardian Information (Required for minors)</h3>
+                    <div class="form-group">
+                        <label for="parent-name">Parent Name</label>
+                        <input type="text" id="parent-name">
+                        <div class="error">Please enter parent name</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="parent-email">Parent Email</label>
+                        <input type="email" id="parent-email">
+                        <div class="error">Please enter a valid email</div>
+                    </div>
+                </div>
+                <button type="submit" class="scout-button">Submit Application</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Toggle full collection view
+        const viewBtn = document.querySelector('.view-collection');
+        const viewLessBtn = document.querySelector('.view-less');
+        const fullCollection = document.querySelector('.full-collection');
+
+        viewBtn.addEventListener('click', () => {
+            fullCollection.classList.add('visible');
+            viewBtn.style.display = 'none';
+            viewLessBtn.style.display = 'inline-block';
+            document.getElementById('collection').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        viewLessBtn.addEventListener('click', () => {
+            fullCollection.classList.remove('visible');
+            viewBtn.style.display = 'inline-block';
+            viewLessBtn.style.display = 'none';
+        });
+
+        // Toggle full cosmetics view
+        const viewMoreCosmetics = document.querySelector('.view-more-cosmetics');
+        const viewLessCosmetics = document.querySelector('.view-less-cosmetics');
+        const fullCosmetics = document.querySelector('.full-cosmetics');
+
+        // Initially hide the "VIEW LESS" button
+        viewLessCosmetics.style.display = 'none';
+
+        viewMoreCosmetics.addEventListener('click', () => {
+            fullCosmetics.classList.add('visible');
+            viewMoreCosmetics.style.display = 'none';
+            viewLessCosmetics.style.display = 'inline-block';
+            // Scroll to cosmetics section to show all products
+            document.getElementById('cosmetics').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        viewLessCosmetics.addEventListener('click', () => {
+            fullCosmetics.classList.remove('visible');
+            viewMoreCosmetics.style.display = 'inline-block';
+            viewLessCosmetics.style.display = 'none';
+        });
+
+        // Show/hide form
+        const scoutBtn = document.getElementById('scout-btn');
+        const formContainer = document.getElementById('form-container');
+        const closeBtn = document.querySelector('.close-btn');
+        
+        if (scoutBtn) {
+            scoutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (formContainer) {
+                    formContainer.style.display = 'flex';
+                }
+            });
+        }
+        
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                if (formContainer) {
+                    formContainer.style.display = 'none';
+                }
+            });
+        }
+        
+        // Close form when clicking outside
+        if (formContainer) {
+            formContainer.addEventListener('click', (e) => {
+                if (e.target === formContainer) {
+                    formContainer.style.display = 'none';
+                }
+            });
+        }
+        
+        // Age-based parent info toggle
+        const ageSelect = document.getElementById('age');
+        const parentInfo = document.querySelector('.parent-info');
+        ageSelect.addEventListener('change', () => {
+            if (parseInt(ageSelect.value) < 18) {
+                parentInfo.style.display = 'block';
+                parentInfo.querySelectorAll('input').forEach(input => input.required = true);
+            } else {
+                parentInfo.style.display = 'none';
+                parentInfo.querySelectorAll('input').forEach(input => input.required = false);
+            }
+        });
+
+        // Form validation and submission
+        const form = document.getElementById('scout-form');
+        form.addEventListener('submit', (e) => {
+            let valid = true;
+            form.querySelectorAll('[required]').forEach(field => {
+                if (!field.value.trim()) {
+                    field.nextElementSibling.style.display = 'block';
+                    valid = false;
+                } else {
+                    field.nextElementSibling.style.display = 'none';
+                }
+            });
+
+            // Email validation
+            const email = document.getElementById('email');
+            if (email.value && !email.value.match(/^\S+@\S+\.\S+$/)) {
+                email.nextElementSibling.style.display = 'block';
+                valid = false;
+            }
+
+            if (parentInfo.style.display === 'block') {
+                const parentFields = parentInfo.querySelectorAll('[required]');
+                parentFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.nextElementSibling.style.display = 'block';
+                        valid = false;
+                    } else {
+                        field.nextElementSibling.style.display = 'none';
+                    }
+                });
+                const parentEmail = document.getElementById('parent-email');
+                if (parentEmail.value && !parentEmail.value.match(/^\S+@\S+\.\S+$/)) {
+                    parentEmail.nextElementSibling.style.display = 'block';
+                    valid = false;
+                }
+            }
+
+            if (!valid) {
+                e.preventDefault();
+            } else {
+                e.preventDefault();
+                alert('Application submitted successfully!');
+                formContainer.style.display = 'none';
+                form.reset();
+                parentInfo.style.display = 'none';
+            }
+        });
+        
+        // Cart functionality
+        let cart = [];
+        const updateCart = () => {
+            const count = cart.length;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.querySelector('.cart-count').textContent = count;
+            document.querySelector('.cart-total').textContent = `$${total}`;
+        };
+
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const itemElement = btn.closest('.featured-item') || btn.closest('.cosmetic-item');
+                const name = itemElement.querySelector('h3').textContent;
+                const price = parseFloat(itemElement.querySelector('.price').textContent.replace('$', ''));
+                cart.push({ name, price });
+                updateCart();
+            });
+        });
+    </script>
+</body>
+</html>
